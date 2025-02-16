@@ -1,0 +1,136 @@
+import psycopg2
+from tkinter import*
+
+car=Tk()
+car.title("CARS FOR SALE")
+car.geometry('880x600+320+0')
+car.resizable(0,0)
+lbl=Label(car,bg='medium purple1')
+lbl.place(x=0,y=0,relwidth=1,relheight=1)
+ 
+def details():
+    heading1=Label(car,text='AVAILABLE CARS',font=('Arial',20,'italic'),bg='medium purple1',fg='black')
+    heading1.place(x=250,y=20)
+    serial_no1=Label(car,text='Car serial number',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    serial_no1.place(x=80,y=80)
+    brand1=Label(car,text='Brand name',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    brand1.place(x=80,y=105)
+    model1=Label(car,text='Model number',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    model1.place(x=80,y=130)
+    sale1=Label(car,text='For sale',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    sale1.place(x=80,y=155)
+    colour1=Label(car,text='Colour',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    colour1.place(x=80,y=180)
+    year1=Label(car,text='Year',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    year1.place(x=80,y=205)
+    price1=Label(car,text='Price',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    price1.place(x=80,y=230)
+    comfort1=Label(car,text='Comfortness',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    comfort1.place(x=80,y=255)
+    reliability1=Label(car,text='Reliability',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    reliability1.place(x=80,y=280)
+    condition1=Label(car,text='Condition',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    condition1.place(x=80,y=305)
+    fuel1=Label(car,text='Fuel type',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    fuel1.place(x=80,y=330)
+    mileage1=Label(car,text='Mileage',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    mileage1.place(x=80,y=355)
+    engine1=Label(car,text='Engine capacity',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    engine1.place(x=80,y=380)
+    performance1=Label(car,text='Performance',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    performance1.place(x=80,y=405)
+    environment1=Label(car,text='Environment',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    environment1.place(x=80,y=430)
+    navigate1=Label(car,text='Navigation',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    navigate1.place(x=80,y=455)
+    safe1=Label(car,text='Safety',font=('Times New Roman',14,'bold'),bg='medium purple1',fg='black')
+    safe1.place(x=80,y=480)
+
+def car_details(d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17):
+    serial=Label(car,text=d1,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    serial.place(x=380,y=80)
+    brand=Label(car,text=d2,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    brand.place(x=380,y=105)
+    model=Label(car,text=d3,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    model.place(x=380,y=130)
+    sale=Label(car,text=d4,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    sale.place(x=380,y=155)
+    colour=Label(car,text=d5,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    colour.place(x=380,y=180)
+    year=Label(car,text=d6,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    year.place(x=380,y=205)
+    price=Label(car,text=d7,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    price.place(x=380,y=230)
+    comfort=Label(car,text=d8,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    comfort.place(x=380,y=255)
+    reliable=Label(car,text=d9,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    reliable.place(x=380,y=280)
+    condition=Label(car,text=d10,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    condition.place(x=380,y=305)
+    fuel=Label(car,text=d11,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    fuel.place(x=380,y=330)
+    mile=Label(car,text=d12,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    mile.place(x=380,y=355)
+    engine=Label(car,text=d13,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    engine.place(x=380,y=380)
+    perform=Label(car,text=d14,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    perform.place(x=380,y=405)
+    ev=Label(car,text=d15,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    ev.place(x=380,y=430)
+    navi=Label(car,text=d16,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    navi.place(x=380,y=455)
+    safe=Label(car,text=d17,font=('Times New Roman',14),bg='medium purple1',fg='black')
+    safe.place(x=380,y=480)
+    def remove_details():
+        serial.config(text=" ")
+        brand.config(text=" ")
+        model.config(text=" ")
+        sale.config(text=" ")
+        colour.config(text=" ")
+        year.config(text=" ")
+        price.config(text=" ")
+        comfort.config(text=" ")
+        reliable.config(text=" ")
+        condition.config(text=" ")
+        fuel.config(text=" ")
+        mile.config(text=" ")
+        engine.config(text=" ")
+        perform.config(text=" ")
+        ev.config(text=" ")
+        navi.config(text=" ")
+        safe.config(text=" ")
+    return
+def fetch_details():
+    details()
+    
+    n=0
+    conn=psycopg2.connect(host="localhost",database="CDS",user="postgres",port="5432",password="07@April@2005")
+    cur=conn.cursor()
+    cur.execute("SELECT COUNT(*) FROM CAR NATURAL JOIN FEATURES WHERE FOR_SALE='Y'")
+    num=cur.fetchone()
+    number=num[0]
+    query1="SELECT SERIAL_NUM,BRAND,MODEL,FOR_SALE,COLOUR,YEAR,PRICE,COMFORTNESS,RELIABILITY,CONDITION,FUEL_TYPE,MILEAGE,ENGINE_CAPACITY,PERFORMANCE,ENTERTAINMENT,NAVIGATION,SAFETY FROM CAR NATURAL JOIN FEATURES WHERE FOR_SALE='Y'"
+    cur.execute(query1)
+    cars=cur.fetchall()
+    car_details(cars[n][0],cars[n][1],cars[n][2],cars[n][3],cars[n][4],cars[n][5],cars[n][6],cars[n][7],cars[n][8],cars[n][9],cars[n][10],cars[n][11],cars[n][12],cars[n][13],cars[n][14],cars[n][15],cars[n][16])
+    def write(n):
+        car_details("                              ","                              ","                              ",
+                    "                              ","                              ","                              ",
+                    "                              ","                              ","                              ",
+                    "                              ","                              ","                              ",
+                    "                              ","                              ","                              ",
+                    "                              ","                              ")
+        car_details(cars[n][0],cars[n][1],cars[n][2],cars[n][3],cars[n][4],cars[n][5],cars[n][6],cars[n][7],cars[n][8],cars[n][9],cars[n][10],cars[n][11],cars[n][12],cars[n][13],cars[n][14],cars[n][15],cars[n][16])
+    def next():
+        nonlocal n
+        n+=1
+        if n==number:
+            n=0
+        write(n)
+        return
+    next=Button(car,text='Next >>',width=10,bg='medium purple',fg='black',activebackground='grey',command=next)
+    next.place(x=525,y=450)
+    conn.commit()
+    conn.close()
+fetch_details()
+car.mainloop()
